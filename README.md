@@ -1,10 +1,22 @@
 # Computer Pointer Controller
 
-*TODO:* Write a short introduction to your project
+In this project, I used a gaze detection model to control the mouse pointer of my computer.  I used the Gaze Estimation model to estimate the gaze of the user's eyes and change the mouse pointer position accordingly. This project demonstrates how to run multiple models in the same machine and coordinate the flow of data between those models.
+
+How it works
+You will be using the InferenceEngine API from Intel's OpenVino ToolKit to build the project. The gaze estimation model requires three inputs:
+
+The head pose
+The left eye image
+The right eye image.
+To get these inputs, you will have to use three other OpenVino models:
+
+Face Detection
+Head Pose Estimation
+Facial Landmarks Detection.
 
 ## Project Set Up and Installation
 
-### 1) Install Intel® Distribution of OpenVINO™ toolkit 
+### 1) Install IntelÂ® Distribution of OpenVINOâ„¢ toolkit 
 https://docs.openvinotoolkit.org/latest/
 Note:  Please make sure to install all dependencies listed in the OpenVino documentation - ie CMake, Python & Microsoft Visual Studio
 
