@@ -1,0 +1,46 @@
+INFO:root:------------------------Program Started-------------------------------------
+INFO:root:Loading Models
+INFO:root:Face detection model loaded: time: 323.452 ms
+INFO:root:Facial landmarks detection model loaded: time: 114.708 ms
+INFO:root:Head pose estimation model loaded: time: 147.235 ms
+INFO:root:Gaze estimation model loaded: time: 324.035 ms
+INFO:root:Time to load all models: time: 911.493 ms
+INFO:root:All models are loaded successfully..
+INFO:root:Initialize Mouse
+INFO:root:Starting Inference on Video
+INFO:root:Counter 59 seconds
+INFO:root:Total Inference Time 100.4 seconds
+INFO:root:fps 0.5876494023904382 frame/second
+INFO:root:Video has completed
+INFO:root:---------------------------------Program has ended ----------------------------------------
+INFO:root:------------------------Program Started-------------------------------------
+INFO:root:Loading Models
+INFO:root:Face detection model loaded: time: 445.123 ms
+INFO:root:Facial landmarks detection model loaded: time: 181.196 ms
+INFO:root:Head pose estimation model loaded: time: 294.523 ms
+INFO:root:Gaze estimation model loaded: time: 132.251 ms
+INFO:root:Time to load all models: time: 1054.124 ms
+INFO:root:All models are loaded successfully..
+INFO:root:Initialize Mouse
+INFO:root:Starting Inference on Video
+INFO:root:Counter 59 seconds
+INFO:root:Total Inference Time 99.4 seconds
+INFO:root:fps 0.5935613682092555 frame/second
+INFO:root:Video has completed
+INFO:root:---------------------------------Program has ended ----------------------------------------
+INFO:root:------------------------Program Started-------------------------------------
+INFO:root:------------------------Program Started-------------------------------------
+INFO:root:Loading Models
+INFO:root:Face detection model loaded: time: 339.574 ms
+INFO:root:Facial landmarks detection model loaded: time: 246.454 ms
+INFO:root:Head pose estimation model loaded: time: 266.209 ms
+INFO:root:Gaze estimation model loaded: time: 170.644 ms
+INFO:root:Time to load all models: time: 1023.892 ms
+INFO:root:All models are loaded successfully..
+INFO:root:Initialize Mouse
+INFO:root:Starting Inference on Video
+INFO:root:Counter 59 seconds
+INFO:root:Total Inference Time 99.8 seconds
+INFO:root:fps 0.591182364729459 frame/second
+INFO:root:Video has completed
+INFO:root:---------------------------------Program has ended ----------------------------------------
