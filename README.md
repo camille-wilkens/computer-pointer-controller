@@ -2,15 +2,15 @@
 
 In this project, I used a gaze detection model to control the mouse pointer of my computer.  I used the Gaze Estimation model to estimate the gaze of the user's eyes and change the mouse pointer position accordingly. This project demonstrates how to run multiple models in the same machine and coordinate the flow of data between those models.
 
-###How it works
+How it works
 
-You will be using the InferenceEngine API from Intel's OpenVino ToolKit to build the project. The gaze estimation model requires three inputs:
+I used the InferenceEngine API from Intel's OpenVino ToolKit to build the project. The gaze estimation model requires three inputs:
 
     The head pose
     The left eye image
     The right eye image.
     
-To get these inputs, you will have to use three other OpenVino models:
+To get these inputs, I used three other OpenVino models:
 
     Face Detection
     Head Pose Estimation
@@ -19,16 +19,20 @@ To get these inputs, you will have to use three other OpenVino models:
 ## Project Set Up and Installation
 
   1) Install Intel® Distribution of OpenVINO™ toolkit 
+  
       https://docs.openvinotoolkit.org/latest/
+      
       Note:  Please make sure to install all dependencies listed in the OpenVino documentation - ie CMake, Python & Microsoft Visual Studio
 
   2) Inititialize OpenVino Environment
+  
       For Windows using Command Prompt:
 
         cd C:\Program Files (x86)\IntelSWTools\openvino\bin\
         setupvars.bat
 
   3) Unzip My Project files from computer-pointer-controller.zip and extract in project directory: 
+  
       c:\Users\cwilkens\Udacity\project3\computer-pointer-controller 
 
           Directory Structure:
@@ -50,40 +54,52 @@ To get these inputs, you will have to use three other OpenVino models:
           |   |   utils.py
 
   4) Create Virtual Environment from command prompt:
-      virtualenv project3
+  
+            virtualenv project3
 
   5) Install Dependicies - pip install requirements.txt
-      image==1.5.27
-      ipdb==0.12.3
-      ipython==7.10.2
-      numpy==1.17.4
-      Pillow==6.2.1
-      requests==2.22.0
-      virtualenv==16.7.9
+
+          image==1.5.27
+          ipdb==0.12.3
+          ipython==7.10.2
+          numpy==1.17.4
+          Pillow==6.2.1
+          requests==2.22.0
+          virtualenv==16.7.9
 
   6) Download Models
+  
      For Windows, using command prompt as admin create models directory structure:
      
           cd C:\Program Files (x86)\IntelSWTools\openvino\
           mkdir models\intel
           cd C:\Program Files (x86)\IntelSWTools\openvino\models\intel
 
-      ###face-detection-adas-binary-0001
+      face-detection-adas-binary-0001
+      
           python "C:\Program Files (x86)\IntelSWTools\openvino\deployment_tools\tools\model_downloader\downloader.py" --name "face-detection-adas-binary-0001"
 
-      ###landmarks-regression-retail-0009
+      landmarks-regression-retail-0009
+      
           python "C:\Program Files (x86)\IntelSWTools\openvino\deployment_tools\tools\model_downloader\downloader.py" --name "landmarks-regression-retail-0009"
 
-      ###head-pose-estimation-adas-0001
-        python "C:\Program Files (x86)\IntelSWTools\openvino\deployment_tools\tools\model_downloader\downloader.py" --name "head-pose-estimation-adas-0001"
+      head-pose-estimation-adas-0001
+      
+          python "C:\Program Files (x86)\IntelSWTools\openvino\deployment_tools\tools\model_downloader\downloader.py" --name "head-pose-estimation-adas-0001"
 
-      ###gaze-estimation-adas-0002
-        python "C:\Program Files (x86)\IntelSWTools\openvino\deployment_tools\tools\model_downloader\downloader.py" --name "gaze-estimation-adas-0002"
+      gaze-estimation-adas-0002
+      
+          python "C:\Program Files (x86)\IntelSWTools\openvino\deployment_tools\tools\model_downloader\downloader.py" --name "gaze-estimation-adas-0002"
 
 ## Demo
-From the main project directory:  (project3) c:\Users\cwilkens\Udacity\project3\computer-pointer-controller
+
+From the main project directory:  
+
+        (project3) c:\Users\cwilkens\Udacity\project3\computer-pointer-controller
+        
   Change directory to \src directory
-    (project3) c:\Users\cwilkens\Udacity\project3\computer-pointer-controller\src>
+  
+        (project3) c:\Users\cwilkens\Udacity\project3\computer-pointer-controller\src>
 
   Command to Run Video File with no Flagging:
 
@@ -139,7 +155,7 @@ From the main project directory:  (project3) c:\Users\cwilkens\Udacity\project3\
 ## Benchmarks
   Tests were performed on Intel Core i7-7820HK CPU @ 2.9Ghz, 2901 Mhz,4 Core(s), 8 Logical Processors(s)
 
-   ###FP32
+   FP32
    Command to Run:
    
           python main.py -fm "C:\Program Files (x86)\IntelSWTools\openvino\models\intel\face-detection-adas-binary-0001\FP32-INT1\face-detection-adas-binary-0001" -lm "C:\Program Files (x86)\IntelSWTools\openvino\models\intel\landmarks-regression-retail-0009\FP32\landmarks-regression-retail-0009" -hm "C:\Program Files (x86)\IntelSWTools\openvino\models\intel\head-pose-estimation-adas-0001\FP32\head-pose-estimation-adas-0001" -gm "C:\Program Files (x86)\IntelSWTools\openvino\models\intel\gaze-estimation-adas-0002\FP32\gaze-estimation-adas-0002"  -i c:\Users\cwilkens\Udacity\project3\computer-pointer-controller\bin\demo.avi -d CPU 
@@ -162,7 +178,7 @@ From the main project directory:  (project3) c:\Users\cwilkens\Udacity\project3\
         INFO:root:Video has completed
         INFO:root:---------------------------------Program has ended ----------------------------------------
 
-  ###FP16
+  FP16
   Command to Run:
   
       python main.py -fm "C:\Program Files (x86)\IntelSWTools\openvino\models\intel\face-detection-adas-binary-0001\FP32-INT1\face-detection-adas-binary-0001" -lm "C:\Program Files (x86)\IntelSWTools\openvino\models\intel\landmarks-regression-retail-0009\FP16\landmarks-regression-retail-0009" -hm "C:\Program Files (x86)\IntelSWTools\openvino\models\intel\head-pose-estimation-adas-0001\FP16\head-pose-estimation-adas-0001" -gm "C:\Program Files (x86)\IntelSWTools\openvino\models\intel\gaze-estimation-adas-0002\FP16\gaze-estimation-adas-0002"  -i c:\Users\cwilkens\Udacity\project3\computer-pointer-controller\bin\demo.avi -d CPU 
@@ -185,7 +201,7 @@ From the main project directory:  (project3) c:\Users\cwilkens\Udacity\project3\
           INFO:root:Video has completed
           INFO:root:---------------------------------Program has ended ----------------------------------------
 
-  ###INT8 
+  INT8 
   Command to Run:
   
     python main.py -fm "C:\Program Files (x86)\IntelSWTools\openvino\models\intel\face-detection-adas-binary-0001\FP32-INT1\face-detection-adas-binary-0001" -lm "C:\Program Files (x86)\IntelSWTools\openvino\models\intel\landmarks-regression-retail-0009\FP16-INT8\landmarks-regression-retail-0009" -hm "C:\Program Files (x86)\IntelSWTools\openvino\models\intel\head-pose-estimation-adas-0001\FP32-INT8\head-pose-estimation-adas-0001" -gm "C:\Program Files (x86)\IntelSWTools\openvino\models\intel\gaze-estimation-adas-0002\FP32-INT8\gaze-estimation-adas-0002"  -i c:\Users\cwilkens\Udacity\project3\computer-pointer-controller\bin\demo.avi -d CPU 
@@ -208,18 +224,18 @@ From the main project directory:  (project3) c:\Users\cwilkens\Udacity\project3\
       INFO:root:Video has completed
       INFO:root:---------------------------------Program has ended ----------------------------------------
 
-##Load Times:
+Load Times:
   face-detection-adas-binary-0001 (FP32-INT)
 
-  Model	                        | FP16	     |  FP32	      |INT8		   
-  ------------------------------- |----------|------------- |----------	   
-  face-detection-adas-binary-0001 |     	   |323.452 ms    |  		    	
-  landmarks-regression-retail-0009|181.196 ms|114.708 ms    |246.454 ms         		     
+  Model	                            | FP16	   |  FP32	      |INT8		   
+  -------------------------------   |----------|------------- |----------	   
+  face-detection-adas-binary-0001   |     	   |323.452 ms    |  		    	
+  landmarks-regression-retail-0009  |181.196 ms|114.708 ms    |246.454 ms         		     
   head-pose-estimation-adas-0001	|294.523 ms|147.235 ms    |266.209 ms	     
   gaze-estimation-adas-0002     	|132.251 ms|324.035 ms	  |170.644 ms	     
 
 
-##Total Load Times, Inference Times & FPS:	
+Total Load Times, Inference Times & FPS:	
 
   Model	|Total Load Times |   Inference	  |FPS	   
   ------|-----------------|-------------- |---------------------------------	 
